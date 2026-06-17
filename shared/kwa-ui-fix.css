@@ -1,0 +1,416 @@
+/* =========================================================
+   Kingswell Academy Shared UI Fix
+   Fixes:
+   - quiz/test answer text not sitting inside clickable areas
+   - oversized text spilling out of cards/buttons
+   - unreadable answer cards
+   - images/logos/banners overflowing
+   - iframe curriculum modules needing the same polish
+   ========================================================= */
+
+:root {
+  --kwa-ink: #121826;
+  --kwa-navy: #101d33;
+  --kwa-gold: #c9a44c;
+  --kwa-gold-soft: #fff4d4;
+  --kwa-paper: #fffdf7;
+  --kwa-line: rgba(16, 24, 39, 0.16);
+  --kwa-burgundy: #6f1d2f;
+  --kwa-green: #244f3a;
+  --kwa-muted: #667085;
+  --kwa-radius: 18px;
+}
+
+/* Stop words/images from busting out of cards */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+  object-fit: contain;
+}
+
+/* Keep big words from breaking layouts */
+.card,
+.panel,
+.lesson-card,
+.question-card,
+.assessment-card,
+.results-card,
+.homework-card,
+.level-card,
+.unit-card,
+.campus-card,
+.month-card,
+.stat,
+.resource-link,
+.choice,
+.option-label,
+.kwa-choice-card,
+button,
+a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* Make headings premium but not ridiculous */
+h1,
+.hero h1,
+.site-header h1,
+.assessment-card h1,
+.lesson-view h1 {
+  font-size: clamp(2rem, 6vw, 4.25rem);
+  line-height: 0.98;
+  max-width: 100%;
+  overflow-wrap: balance;
+}
+
+h2,
+.page-title h2,
+.card h2,
+.section-head h2 {
+  font-size: clamp(1.65rem, 4vw, 3rem);
+  line-height: 1.05;
+}
+
+h3 {
+  line-height: 1.12;
+}
+
+/* Brand images, logos, banners */
+.brand img,
+.kwa-brand-banner img,
+.kwa-mini-brand img,
+.logo,
+.crest,
+.app-icon {
+  width: clamp(54px, 10vw, 82px);
+  height: clamp(54px, 10vw, 82px);
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.banner,
+.hero-media,
+.brand-banner,
+.kwa-brand-banner {
+  overflow: hidden;
+}
+
+.banner img,
+.hero-media img,
+.brand-banner img {
+  display: block;
+  width: 100%;
+  max-height: min(520px, 62vh);
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Buttons and tabs should wrap cleanly instead of crushing text */
+button,
+.btn,
+.primary,
+.secondary,
+.link-button,
+.nav-btn,
+.tab,
+.pill-btn,
+.level-tab,
+.lesson-link {
+  white-space: normal;
+  text-align: center;
+  line-height: 1.15;
+  max-width: 100%;
+}
+
+/* Better mobile navigation */
+.tabs,
+.hero-actions,
+.button-row,
+.level-pills,
+.top-actions,
+.filters,
+.stack-actions,
+.mini-actions {
+  flex-wrap: wrap;
+}
+
+select {
+  max-width: 100%;
+}
+
+/* =========================================================
+   Premium Assessment / Quest Deck Fix
+   Works with root app and module apps:
+   .choice
+   .option-label
+   .choice-card
+   .kwa-choice-card
+   ========================================================= */
+
+.assessment-form,
+.kwa-assessment-form,
+form:has(input[type="radio"]),
+form:has(input[type="checkbox"]) {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+}
+
+.question,
+.question-card,
+.kwa-question-card,
+fieldset {
+  min-width: 0;
+}
+
+fieldset.question,
+fieldset.question-card,
+.kwa-question-card {
+  border: 1px solid rgba(201, 164, 76, 0.36);
+  background: linear-gradient(180deg, #fffdf7, #fff7e8);
+  border-radius: 22px;
+  padding: clamp(0.9rem, 2vw, 1.15rem);
+  margin: 1rem 0;
+  box-shadow: 0 14px 30px rgba(16, 24, 39, 0.075);
+}
+
+.question legend,
+.question-card legend,
+.kwa-question-card legend {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.25rem 0.35rem 0.75rem;
+  color: var(--kwa-ink);
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.question-prompt,
+.kwa-question-prompt,
+.question legend span:last-child {
+  display: block;
+  font-size: clamp(1rem, 2vw, 1.22rem);
+  line-height: 1.28;
+  color: var(--kwa-ink);
+  overflow-wrap: anywhere;
+}
+
+.choices,
+.answer-grid,
+.kwa-answer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.72rem;
+  width: 100%;
+  margin-top: 0.55rem;
+}
+
+/* This is the main answer-card fix */
+.choice,
+.option-label,
+.choice-card,
+.kwa-choice-card {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-items: start;
+  gap: 0.8rem;
+  width: 100%;
+  min-height: 64px;
+  margin: 0.55rem 0;
+  padding: 0.9rem 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(16, 24, 39, 0.14);
+  background: linear-gradient(135deg, #ffffff, #fff8e7);
+  color: var(--kwa-ink);
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(16, 24, 39, 0.045);
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+/* Make the whole answer readable and clickable */
+.choice *,
+.option-label *,
+.choice-card *,
+.kwa-choice-card * {
+  min-width: 0;
+}
+
+.choice:hover,
+.option-label:hover,
+.choice-card:hover,
+.kwa-choice-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(111, 29, 47, 0.42);
+  background: linear-gradient(135deg, #fffaf0, #f2e3ca);
+  box-shadow: 0 13px 24px rgba(16, 24, 39, 0.085);
+}
+
+.choice input[type="radio"],
+.choice input[type="checkbox"],
+.option-label input[type="radio"],
+.option-label input[type="checkbox"],
+.choice-card input[type="radio"],
+.choice-card input[type="checkbox"],
+.kwa-choice-card input[type="radio"],
+.kwa-choice-card input[type="checkbox"] {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.choice-letter,
+.kwa-choice-letter {
+  display: grid;
+  place-items: center;
+  width: 2.45rem;
+  height: 2.45rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--kwa-burgundy), #4e1423);
+  color: #fffaf0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  line-height: 1;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 8px 18px rgba(111, 29, 47, 0.18);
+}
+
+.choice-copy,
+.kwa-choice-copy {
+  display: block;
+  width: 100%;
+  padding-top: 0.08rem;
+  color: #172033;
+  font-size: clamp(0.95rem, 1.65vw, 1.04rem);
+  font-weight: 700;
+  line-height: 1.38;
+  overflow-wrap: anywhere;
+}
+
+.choice-copy strong,
+.kwa-choice-copy strong {
+  color: var(--kwa-burgundy);
+  font-weight: 950;
+  margin-right: 0.25rem;
+}
+
+.choice.selected,
+.option-label.selected,
+.choice-card.selected,
+.kwa-choice-card.selected,
+.choice:has(input:checked),
+.option-label:has(input:checked),
+.choice-card:has(input:checked),
+.kwa-choice-card:has(input:checked) {
+  border-color: rgba(36, 79, 58, 0.64);
+  background: linear-gradient(135deg, #f2fff7, #fffaf0);
+  box-shadow: 0 16px 30px rgba(36, 79, 58, 0.12);
+}
+
+.choice.selected .choice-letter,
+.option-label.selected .choice-letter,
+.choice-card.selected .choice-letter,
+.kwa-choice-card.selected .kwa-choice-letter,
+.choice:has(input:checked) .choice-letter,
+.option-label:has(input:checked) .choice-letter,
+.choice-card:has(input:checked) .choice-letter,
+.kwa-choice-card:has(input:checked) .kwa-choice-letter {
+  background: linear-gradient(135deg, var(--kwa-green), #173528);
+}
+
+.choice input:focus-visible + .choice-letter,
+.option-label input:focus-visible + .choice-letter,
+.choice-card input:focus-visible + .choice-letter,
+.kwa-choice-card input:focus-visible + .kwa-choice-letter {
+  outline: 4px solid rgba(201, 164, 76, 0.42);
+  outline-offset: 3px;
+}
+
+/* Short-answer fields */
+textarea,
+.short-answer,
+input[type="text"],
+input:not([type]) {
+  max-width: 100%;
+  line-height: 1.5;
+}
+
+/* Tables and rubrics */
+table,
+.rubric-table {
+  width: 100%;
+  max-width: 100%;
+  display: table;
+}
+
+@media (max-width: 760px) {
+  table,
+  .rubric-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .choice,
+  .option-label,
+  .choice-card,
+  .kwa-choice-card {
+    grid-template-columns: 2.55rem minmax(0, 1fr);
+    gap: 0.65rem;
+    padding: 0.78rem;
+  }
+
+  .choice-letter,
+  .kwa-choice-letter {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .choice,
+  .option-label,
+  .choice-card,
+  .kwa-choice-card {
+    grid-template-columns: 1fr;
+  }
+
+  .choice-letter,
+  .kwa-choice-letter {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}

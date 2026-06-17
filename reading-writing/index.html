@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reading + Writing Curriculum Platform</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="../shared/kwa-video-classroom.css" />
+  <meta property="og:image" content="../assets/branding/kingswell-academy-banner.png" />
+  <link rel="apple-touch-icon" href="../assets/branding/kingswell-academy-logo-512.png" />
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="shortcut icon" href="../assets/branding/kingswell-academy-logo-512.png" type="image/png" />
+</head>
+<body>
+  <a class="kwa-return-link" href="../index.html">← Back to Kingswell Academy</a>
+  <div class="kwa-brand-banner"><img src="../assets/branding/kingswell-academy-logo-512.png" alt="Kingswell Academy crest" /><div><strong>Kingswell Academy</strong><span>Knowledge Crowned by Character</span></div></div>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="eyebrow">Kingswell Academy • Reading + Writing</p>
+      <h1>Reading + Writing Curriculum</h1>
+      <p class="hero__text">
+        Basic, Intermediate, and Advanced reading and writing classes with lessons,
+        homework, quizzes, 40-question tests, answer explanations, rubrics, and progress tracking.
+      </p>
+      <div class="hero__actions">
+        <button class="btn btn--gold" data-view="dashboard">Dashboard</button>
+        <button class="btn btn--ghost" data-view="placement">Take Placement Test</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <aside class="sidebar">
+      <h2>Course Controls</h2>
+      <nav class="nav-stack">
+        <button class="nav-btn active" data-view="dashboard">Dashboard</button>
+        <button class="nav-btn" data-view="courses">Classrooms</button>
+        <button class="nav-btn" data-view="tests">Tests</button>
+        <button class="nav-btn" data-view="homework">Homework</button>
+        <button class="nav-btn" data-view="progress">Progress</button>
+        <button class="nav-btn" data-view="placement">Placement</button>
+      </nav>
+
+      <div class="panel small-panel">
+        <h3>Level Access</h3>
+        <div id="levelAccess"></div>
+      </div>
+
+      <button id="resetProgressBtn" class="btn btn--danger">Reset Demo Progress</button>
+    </aside>
+
+    <section class="content">
+      <div id="app"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      This platform uses books as teacher references only. Do not paste copyrighted chapters, worksheets,
+      or test pages into a public or paid site. Build original lessons, passages, and questions.
+    </p>
+  </footer>
+
+  <script src="data-reading-writing.js"></script>
+  <script src="../shared/kwa-youtube-classrooms.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

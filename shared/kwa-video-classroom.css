@@ -1,0 +1,240 @@
+.kwa-youtube-classroom {
+  width: min(1180px, 94vw);
+  margin: 1.2rem auto;
+}
+
+.kwa-youtube-panel,
+.kwa-youtube-course-card {
+  border: 1px solid rgba(185, 144, 69, 0.35);
+  background:
+    linear-gradient(135deg, rgba(255, 253, 247, 0.96), rgba(244, 235, 220, 0.92)),
+    #fffdf7;
+  box-shadow: 0 18px 42px rgba(16, 24, 32, 0.11);
+  color: #141820;
+}
+
+.kwa-youtube-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+  gap: 1rem;
+  align-items: center;
+  padding: clamp(1rem, 2vw, 1.35rem);
+  border-radius: 22px;
+}
+
+.kwa-youtube-course-card {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1rem;
+  border-radius: 20px;
+  margin: 1rem 0;
+}
+
+.kwa-youtube-copy h2,
+.kwa-youtube-course-copy h3,
+.kwa-youtube-course-card h3 {
+  margin: 0.18rem 0 0.45rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  line-height: 1.05;
+  color: #101820;
+}
+
+.kwa-youtube-copy h2 {
+  font-size: clamp(1.55rem, 3.5vw, 2.65rem);
+}
+
+.kwa-youtube-course-card h3 {
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+}
+
+.kwa-youtube-copy p,
+.kwa-youtube-course-copy p,
+.kwa-youtube-course-card p {
+  margin: 0;
+  color: #3f4752;
+}
+
+.kwa-youtube-eyebrow {
+  color: #6f1d2f !important;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-size: 0.72rem;
+  font-weight: 950;
+}
+
+.kwa-youtube-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #05070b;
+  border: 1px solid rgba(16, 24, 32, 0.18);
+  box-shadow: 0 16px 34px rgba(16, 24, 32, 0.2);
+  color: #fffaf0;
+  text-decoration: none;
+}
+
+.kwa-youtube-frame:hover {
+  transform: translateY(-2px);
+  border-color: rgba(211, 177, 111, 0.72);
+  box-shadow: 0 24px 52px rgba(16, 24, 32, 0.32);
+}
+
+.kwa-youtube-frame:focus-visible {
+  outline: 4px solid rgba(185, 144, 69, 0.45);
+  outline-offset: 4px;
+}
+
+.kwa-youtube-screen {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(185, 144, 69, 0.34), transparent 22%),
+    radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.16), transparent 18%),
+    linear-gradient(135deg, #090d14, #111827 54%, #05070b);
+}
+
+.kwa-youtube-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 34%, rgba(0, 0, 0, 0.66)),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 4px);
+}
+
+.kwa-youtube-topline {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  top: 0.85rem;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  color: #f7f0e3;
+  font-size: 0.75rem;
+  font-weight: 950;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.kwa-youtube-topline span:last-child {
+  color: #ffdf8b;
+}
+
+.kwa-youtube-play {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  z-index: 3;
+  display: grid;
+  width: clamp(4.2rem, 10vw, 6rem);
+  height: clamp(4.2rem, 10vw, 6rem);
+  place-items: center;
+  border-radius: 999px;
+  background: #e52433;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.38);
+  transform: translate(-50%, -50%);
+}
+
+.kwa-youtube-play span {
+  margin-left: 0.18rem;
+  color: #fff;
+  font-size: clamp(1.45rem, 4vw, 2.1rem);
+  line-height: 1;
+}
+
+.kwa-youtube-caption {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 2.6rem;
+  z-index: 3;
+  display: grid;
+  gap: 0.15rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
+.kwa-youtube-caption strong {
+  color: #fffaf0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: clamp(1rem, 2vw, 1.28rem);
+  line-height: 1.1;
+}
+
+.kwa-youtube-caption small {
+  color: #e6d9c4;
+  font-weight: 800;
+}
+
+.kwa-youtube-controls {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.85rem;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1.4rem 1fr 2rem 2rem;
+  gap: 0.55rem;
+  align-items: center;
+  height: 0.8rem;
+  opacity: 0.88;
+}
+
+.kwa-youtube-controls i,
+.kwa-youtube-controls em,
+.kwa-youtube-controls strong {
+  display: block;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.kwa-youtube-controls b {
+  display: block;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #e52433 0 42%, rgba(255, 255, 255, 0.38) 42%);
+}
+
+.kwa-youtube-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.9rem;
+}
+
+.kwa-youtube-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.65rem;
+  padding: 0.68rem 0.88rem;
+  border: 1px solid rgba(185, 144, 69, 0.42);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #fff7e6, #e9dcc8);
+  color: #101820;
+  font-weight: 900;
+  text-decoration: none;
+  line-height: 1.15;
+}
+
+.kwa-youtube-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(111, 29, 47, 0.42);
+}
+
+@media (max-width: 840px) {
+  .kwa-youtube-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .kwa-youtube-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
